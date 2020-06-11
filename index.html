@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Columbus, Oh 2020 Budget</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <script>
+      function onload() {
+        // Create the chart
+        Highcharts.chart("container", {
+          chart: {
+            type: "pie",
+          },
+          title: {
+            text: "Columbus, Ohio City Budget 2020",
+          },
+          subtitle: {
+            text: "Total Budget: $965,000,000",
+          },
+
+          accessibility: {
+            announceNewData: {
+              enabled: true,
+            },
+            point: {
+              valueSuffix: "%",
+            },
+          },
+
+          plotOptions: {
+            series: {
+              dataLabels: {
+                enabled: true,
+                format: "{point.name}: {point.percentage:.1f}%",
+              },
+            },
+          },
+
+          tooltip: {
+            headerFormat:
+              '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat:
+              '<span style="color:{point.color}">{point.name}</span>: <b>${point.y}</b><br/>',
+          },
+
+          series: [
+            {
+              name: "Departments",
+              colorByPoint: true,
+              data: [
+                {
+                  name: "City Council",
+                  y: 4881103,
+                  drilldown: null,
+                },
+                {
+                  name: "City Auditor",
+                  y: 14751797,
+                  drilldown: "City Auditor",
+                },
+                {
+                  name: "City Treasurer",
+                  y: 1473290,
+                  drilldown: null,
+                },
+                {
+                  name: "City Attorney",
+                  y: 13736910,
+                  drilldown: "City Attorney",
+                },
+                {
+                  name: "Municipal Court Judges",
+                  y: 20215446,
+                  drilldown: null,
+                },
+                {
+                  name: "Municipal Court Clerk",
+                  y: 12767864,
+                  drilldown: null,
+                },
+                {
+                  name: "Civil Service",
+                  y: 4427504,
+                  drilldown: null,
+                },
+                {
+                  name: "Public Safety",
+                  y: 647398397,
+                  drilldown: "Public Safety",
+                },
+                {
+                  name: "Office of the Mayor",
+                  y: 6678766,
+                  drilldown: "Office of the Mayor",
+                },
+                {
+                  name: "Education",
+                  y: 6661910,
+                  drilldown: null,
+                },
+                {
+                  name: "Development",
+                  y: 29877561,
+                  drilldown: "Development",
+                },
+                {
+                  name: "Finance and Management",
+                  y: 27961366,
+                  drilldown: "Finance and Management",
+                },
+                {
+                  name: "Finance City-wide",
+                  y: 40749696,
+                  drilldown: null,
+                },
+                {
+                  name: "Finance Finance Technology (Pays gf agency bills)",
+                  y: 20260570,
+                  drilldown: null,
+                },
+                {
+                  name: "Human Resources",
+                  y: 3122816,
+                  drilldown: null,
+                },
+                {
+                  name: "Neighborhoods",
+                  y: 6068550,
+                  drilldown: null,
+                },
+                {
+                  name: "Health",
+                  y: 26716803,
+                  drilldown: null,
+                },
+                {
+                  name: "Recreation and Parks",
+                  y: 43030613,
+                  drilldown: null,
+                },
+                {
+                  name: "Public Service",
+                  y: 34219038,
+                  drilldown: "Public Service",
+                },
+              ],
+            },
+          ],
+          drilldown: {
+            series: [
+              {
+                name: "City Auditor",
+                id: "City Auditor",
+                data: [
+                  ["City Auditor", 4799068],
+                  ["Income Tax", 9952729],
+                ],
+              },
+              {
+                name: "City Attorney",
+                id: "City Attorney",
+                data: [
+                  ["City Attorney", 13571589],
+                  ["Real Estate", 155321],
+                ],
+              },
+              {
+                name: "Public Safety",
+                id: "Public Safety",
+                data: [
+                  ["Administration", 8128152],
+                  ["Support Services", 7921198],
+                  ["Police", 359970422],
+                  ["Fire", 271378625],
+                ],
+              },
+              {
+                name: "Office of the Mayor",
+                id: "Office of the Mayor",
+                data: [
+                  ["Mayor", 4921379],
+                  ["Office of Diversity & Inclusion", 1757387],
+                ],
+              },
+              {
+                name: "Development",
+                id: "Development",
+                data: [
+                  ["Administration", 6202009],
+                  ["Econ. Development", 4468534],
+                  ["Code Enforcement", 9129891],
+                  ["Planning", 1899343],
+                  ["Housing", 7498810],
+                  ["Land Redevelopment", 678974],
+                ],
+              },
+              {
+                name: "Finance and Management",
+                id: "Finance and Management",
+                data: [
+                  ["Finance Administration", 5377434],
+                  ["Financial Management", 4917896],
+                  ["Facilities Management", 17666036],
+                ],
+              },
+              {
+                name: "Public Service",
+                id: "Public Service",
+                data: [
+                  ["Administration", 712412],
+                  ["Refuse Colleciton", 33506626],
+                ],
+              },
+            ],
+          },
+        });
+      }
+    </script>
+  </head>
+
+  <body onload="onload()">
+    <figure class="highcharts-figure">
+      <div id="container"></div>
+    </figure>
+  </body>
+</html>
